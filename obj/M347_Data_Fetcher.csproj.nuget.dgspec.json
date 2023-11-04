@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ianwa\\source\\repos\\M347-WeatherAPI-data-fetcher\\M347_Data_Fetcher.csproj": {}
+    "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ianwa\\source\\repos\\M347-WeatherAPI-data-fetcher\\M347_Data_Fetcher.csproj": {
+    "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ianwa\\source\\repos\\M347-WeatherAPI-data-fetcher\\M347_Data_Fetcher.csproj",
+        "projectUniqueName": "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj",
         "projectName": "M347_Data_Fetcher",
-        "projectPath": "C:\\Users\\ianwa\\source\\repos\\M347-WeatherAPI-data-fetcher\\M347_Data_Fetcher.csproj",
+        "projectPath": "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj",
         "packagesPath": "C:\\Users\\ianwa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ianwa\\source\\repos\\M347-WeatherAPI-data-fetcher\\obj\\",
+        "outputPath": "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ianwa\\AppData\\Roaming\\NuGet\\NuGet.Config",

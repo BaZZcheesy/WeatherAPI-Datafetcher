@@ -44,7 +44,6 @@
     private string cityName { get; set; } = "London";
 
 
-
     protected override async Task OnInitializedAsync()
     {
         // on page load
@@ -78,7 +77,5 @@
         var response = await WeatherApi.GetWeather("1c39ca929b4b4d23a4364338231708", cityName);
         
         jsonConverted = JsonConvert.DeserializeObject<Response>(response);
-        
-        //debug = JsonConvert.SerializeObject(jsonConverted, Formatting.Indented);
     }
 }
