@@ -59,7 +59,7 @@ var Store = app.Services.GetService<IDocumentStore>();
 
 Response? jsonConverted;
 
-string cityName = "St. Gallen";
+string cityName = "Gais AR";
 
 setTimers();
 async Task WeatherGet(string cityName)

@@ -5380,11 +5380,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj",
+      "projectUniqueName": "C:\\Users\\ianwa\\source\\repos\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj",
       "projectName": "M347_Data_Fetcher",
-      "projectPath": "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj",
+      "projectPath": "C:\\Users\\ianwa\\source\\repos\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj",
       "packagesPath": "C:\\Users\\ianwa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ianwa\\Documents\\GitHub\\WeatherAPI-Datafetcher\\obj\\",
+      "outputPath": "C:\\Users\\ianwa\\source\\repos\\WeatherAPI-Datafetcher\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ianwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
