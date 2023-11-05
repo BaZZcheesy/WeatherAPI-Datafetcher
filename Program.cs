@@ -59,6 +59,7 @@ var Store = app.Services.GetService<IDocumentStore>();
 
 Response? jsonConverted;
 
+//Default cityName
 string cityName = "Gais AR";
 
 setTimers();
@@ -68,8 +69,10 @@ async Task WeatherGet(string cityName)
     string response = string.Empty;
 
     //TODO: Improve exception handling
+
     try
     {
+        //Fetch data from WeatherAPI
         response = await WeatherApi.GetWeather("1c39ca929b4b4d23a4364338231708", cityName);
 
         WeatherFetcherStatus.isRunning = true;
@@ -80,18 +83,25 @@ async Task WeatherGet(string cityName)
 
         var weather = new Response
         {
+            dateInserted = DateTime.Now.ToString(),
             Current = jsonConverted.Current,
             Location = jsonConverted.Location
         };
 
+        //Insert the instanciated weather object into the database
         session.Store(weather);
 
         await session.SaveChangesAsync();
 
+        //Changes variable that is needed to show the state of the service
+        WeatherFetcherStatus.isRunning = true;
+
+        //Console.WriteLine() for debugging and additional info
         Console.WriteLine(DateTime.Now.ToString() + "DB Insert with location: " + weather.Location.Name + " sucsessfull" );
     }
     catch (Exception e)
     {
+        //Changes variable that is needed to show the state of the service
         WeatherFetcherStatus.isRunning = false;
     }
 }
@@ -105,6 +115,7 @@ void setTimers()
     aTimer = new System.Timers.Timer(5000);
     aTimer.Elapsed += OnTimedEvent;
     aTimer.Start();
+    Console.WriteLine("");
 }
 
 async void OnTimedEvent(Object source, ElapsedEventArgs e)
