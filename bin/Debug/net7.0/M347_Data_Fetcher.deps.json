@@ -9,6 +9,7 @@
       "M347_Data_Fetcher/1.0.0": {
         "dependencies": {
           "Marten": "6.3.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.17.2",
           "MudBlazor": "6.8.0",
           "Newtonsoft.Json": "13.0.3",
           "Refit": "7.0.0"
@@ -679,6 +680,7 @@
       },
       "Microsoft.NETCore.Platforms/1.0.1": {},
       "Microsoft.NETCore.Targets/1.0.1": {},
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.17.2": {},
       "MudBlazor/6.8.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "7.0.5",
@@ -1322,6 +1324,13 @@
       "sha512": "sha512-rkn+fKobF/cbWfnnfBOQHKVKIOpxMZBvlSHkqDWgBpwGDcLRduvs3D9OLGeV6GWGvVwNlVi2CBbTjuPmtHvyNw==",
       "path": "microsoft.netcore.targets/1.0.1",
       "hashPath": "microsoft.netcore.targets.1.0.1.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.17.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5daNXm8Hb016oETmuHXiW8jclmRR9CzM7XrOh2htYhQ/7AAYtqntZ1MrZkh09+JTtdjYdGsy2XIMPe9cg83x5w==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.17.2",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512"
     },
     "MudBlazor/6.8.0": {
       "type": "package",

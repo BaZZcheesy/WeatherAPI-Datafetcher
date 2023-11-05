@@ -67,6 +67,7 @@ async Task WeatherGet(string cityName)
 {
     //TODO: create function to accept parameters from another GUI/User Interface
     string response = string.Empty;
+    WeatherFetcherStatus.currentCity = cityName;
 
     //TODO: Improve exception handling
 
@@ -115,7 +116,6 @@ void setTimers()
     aTimer = new System.Timers.Timer(5000);
     aTimer.Elapsed += OnTimedEvent;
     aTimer.Start();
-    Console.WriteLine("");
 }
 
 async void OnTimedEvent(Object source, ElapsedEventArgs e)
