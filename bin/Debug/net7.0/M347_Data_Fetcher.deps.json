@@ -10,7 +10,7 @@
         "dependencies": {
           "Marten": "6.3.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.17.2",
-          "MudBlazor": "6.8.0",
+          "MudBlazor": "6.11.0",
           "Newtonsoft.Json": "13.0.3",
           "Refit": "7.0.0"
         },
@@ -681,7 +681,7 @@
       "Microsoft.NETCore.Platforms/1.0.1": {},
       "Microsoft.NETCore.Targets/1.0.1": {},
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.17.2": {},
-      "MudBlazor/6.8.0": {
+      "MudBlazor/6.11.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "7.0.5",
           "Microsoft.AspNetCore.Components.Web": "7.0.5",
@@ -689,8 +689,8 @@
         },
         "runtime": {
           "lib/net7.0/MudBlazor.dll": {
-            "assemblyVersion": "6.8.0.0",
-            "fileVersion": "6.8.0.0"
+            "assemblyVersion": "6.11.0.0",
+            "fileVersion": "6.11.0.0"
           }
         }
       },
@@ -1332,12 +1332,12 @@
       "path": "microsoft.visualstudio.azure.containers.tools.targets/1.17.2",
       "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512"
     },
-    "MudBlazor/6.8.0": {
+    "MudBlazor/6.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dj4v8w7eVNAzMCckzgnqQx9PtUVVe/zjV34GjG02JkL2Lt8HKCpFSd5pi7bvgryfAMljTPhVO30RkO+BGTvTDQ==",
-      "path": "mudblazor/6.8.0",
-      "hashPath": "mudblazor.6.8.0.nupkg.sha512"
+      "sha512": "sha512-gP97w+oP0G0slw2P+EKfHfhN126GBHJpL61haQJy3iAo9JSWMkzlcEQ1yFlHSWJQeI9jOZ6pb1IK9XggFOI7lA==",
+      "path": "mudblazor/6.11.0",
+      "hashPath": "mudblazor.6.11.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",

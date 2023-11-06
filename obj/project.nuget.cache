@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gbqCngtH/lCfFwB/nV2B4uGBd/MLY3PYUobT4YZgq+nqxyPk7xbzrzouAYphGb0ZqqOVojVr4TBM2wDF13YHrw==",
+  "dgSpecHash": "/kN95ljlQaXHEapOE+lri4xrb7dmPA8b99kbide+NfFzdC2rGC9ZG13q457Sy9ynFEk0Zbc434Ti+SQbCbcONA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ianwa\\source\\repos\\WeatherAPI-Datafetcher\\M347_Data_Fetcher.csproj",
   "expectedPackageFiles": [
@@ -43,7 +43,7 @@
     "C:\\Users\\ianwa\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
     "C:\\Users\\ianwa\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
     "C:\\Users\\ianwa\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
-    "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.8.0\\mudblazor.6.8.0.nupkg.sha512",
+    "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.11.0\\mudblazor.6.11.0.nupkg.sha512",
     "C:\\Users\\ianwa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\ianwa\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
     "C:\\Users\\ianwa\\.nuget\\packages\\npgsql.json.net\\7.0.6\\npgsql.json.net.7.0.6.nupkg.sha512",

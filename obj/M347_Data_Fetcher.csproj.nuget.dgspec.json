@@ -50,7 +50,7 @@
             },
             "MudBlazor": {
               "target": "Package",
-              "version": "[6.8.0, )"
+              "version": "[6.11.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

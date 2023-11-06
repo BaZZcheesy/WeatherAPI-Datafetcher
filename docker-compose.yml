@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  m347_data_fetcher:
+    image: ${DOCKER_REGISTRY-}m347datafetcher
+    build:
+      context: .
+      dockerfile: Dockerfile

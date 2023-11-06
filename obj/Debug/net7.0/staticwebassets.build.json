@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ixzb15/dAZSsUGV5mie02OxN6NsTmDKiEza3FGkmAu4=",
+  "Hash": "0i65p4uiuhfbUmAsUkdfoNtPh04w+U86G0nRPQmoeD8=",
   "Source": "M347_Data_Fetcher",
   "BasePath": "_content/M347_Data_Fetcher",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.8.0\\staticwebassets\\MudBlazor.min.css",
+      "Identity": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.11.0\\staticwebassets\\MudBlazor.min.css",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.8.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.11.0\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.8.0\\staticwebassets\\MudBlazor.min.css"
+      "OriginalItemSpec": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.11.0\\staticwebassets\\MudBlazor.min.css"
     },
     {
-      "Identity": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.8.0\\staticwebassets\\MudBlazor.min.js",
+      "Identity": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.11.0\\staticwebassets\\MudBlazor.min.js",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.8.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.11.0\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.js",
       "AssetKind": "All",
@@ -48,7 +48,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.8.0\\staticwebassets\\MudBlazor.min.js"
+      "OriginalItemSpec": "C:\\Users\\ianwa\\.nuget\\packages\\mudblazor\\6.11.0\\staticwebassets\\MudBlazor.min.js"
     },
     {
       "Identity": "C:\\Users\\ianwa\\source\\repos\\WeatherAPI-Datafetcher\\obj\\Debug\\net7.0\\scopedcss\\bundle\\M347_Data_Fetcher.styles.css",

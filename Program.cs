@@ -26,7 +26,6 @@ var gitHubApi = RestService.For<IWeatherApi>("https://api.weatherapi.com/");
 builder.Services.AddSingleton(gitHubApi);
 builder.Services.AddMudServices();
 
-
 // This is the absolute, simplest way to integrate Marten into your
 // .NET application with Marten's default configuration
 builder.Services.AddMarten(options =>
@@ -44,14 +43,7 @@ builder.Services.AddMarten(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
+Console.WriteLine(builder.Configuration.GetConnectionString("Marten"));
 
 var WeatherApi = app.Services.GetService<IWeatherApi>();
 
@@ -98,7 +90,7 @@ async Task WeatherGet(string cityName)
         WeatherFetcherStatus.isRunning = true;
 
         //Console.WriteLine() for debugging and additional info
-        Console.WriteLine(DateTime.Now.ToString() + "DB Insert with location: " + weather.Location.Name + " sucsessfull" );
+        Console.WriteLine(DateTime.Now.ToString() + "DB Insert with location: " + weather.Location.Name + " successfull" );
     }
     catch (Exception e)
     {
@@ -136,6 +128,13 @@ async void OnTimedEvent(Object source, ElapsedEventArgs e)
 //    if(response)
 //}
 
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
 app.UseHttpsRedirection();
 
