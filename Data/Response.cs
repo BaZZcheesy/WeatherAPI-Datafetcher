@@ -1,4 +1,6 @@
-﻿namespace M347_Data_Fetcher.Data
+﻿using Newtonsoft.Json.Serialization;
+
+namespace M347_Data_Fetcher.Data
 {
     public class Response
     {
@@ -8,5 +10,8 @@
         required public Location Location { get; set; }
 
         required public Current Current { get; set; }
+
+        //JsonProperty("")
+        //required public int ResponseCode { get; set; };
     }
 }

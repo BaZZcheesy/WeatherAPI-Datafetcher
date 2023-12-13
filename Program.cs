@@ -1,5 +1,6 @@
 using M347_Data_Fetcher.Api;
 using M347_Data_Fetcher.Data;
+using M347_Data_Fetcher.Pages;
 using Refit;
 using MudBlazor.Services;
 using Marten;
@@ -9,7 +10,10 @@ using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
 using JasperFx.CodeGeneration.Frames;
 using MudBlazor.Charts;
-using M347_Data_Fetcher.Pages;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+using M347_Data_Fetcher.Processes;
 
 
 
@@ -25,6 +29,7 @@ builder.Services.AddServerSideBlazor();
 var gitHubApi = RestService.For<IWeatherApi>("https://api.weatherapi.com/");
 builder.Services.AddSingleton(gitHubApi);
 builder.Services.AddMudServices();
+builder.Services.AddSingleton<TcpConnection>();
 
 // This is the absolute, simplest way to integrate Marten into your
 // .NET application with Marten's default configuration
@@ -50,6 +55,12 @@ var WeatherApi = app.Services.GetService<IWeatherApi>();
 var Store = app.Services.GetService<IDocumentStore>();
 
 Response? jsonConverted;
+
+var tcp = new TcpConnection();
+
+var thread = new ThreadStart(tcp.TcpConnectionInit);
+var backgroundThread = new Thread(thread);
+backgroundThread.Start();
 
 //Default cityName
 string cityName = "Gais AR";
@@ -105,7 +116,7 @@ void setTimers()
 {
     System.Timers.Timer aTimer;
 
-    aTimer = new System.Timers.Timer(5000);
+    aTimer = new System.Timers.Timer(10000);
     aTimer.Elapsed += OnTimedEvent;
     aTimer.Start();
 }
