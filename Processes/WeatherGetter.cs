@@ -2,6 +2,7 @@
 using M347_Data_Fetcher.Data;
 using M347_Data_Fetcher.Pages;
 using Marten;
+using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
 using System.Timers;
 
@@ -9,10 +10,17 @@ namespace M347_Data_Fetcher.Processes
 {
     public class WeatherGetter
     {
-        private readonly IWeatherApi _weatherApi;
-        private readonly IDocumentStore _store;
+        private IWeatherApi? _weatherApi;
+        private IDocumentStore? _store;
 
-        void setTimers()
+        // Constructor DI (dependency injection)
+        public WeatherGetter(IWeatherApi weatherapi, IDocumentStore store)
+        {
+            _weatherApi = weatherapi;
+            _store = store;
+        }
+        
+        public void setTimers()
         {
             System.Timers.Timer aTimer;
 
@@ -29,13 +37,12 @@ namespace M347_Data_Fetcher.Processes
 
         async Task WeatherGet(string cityName)
         {
-            
             Response? jsonConverted;
 
-            //TODO: create function to accept parameters from another GUI/User Interface
             string response = string.Empty;
 
             WeatherFetcherStatus.currentCity = cityName;
+
 
             try
             {

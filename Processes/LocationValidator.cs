@@ -3,15 +3,14 @@
     public class LocationValidator
     {
         //Default cityName
-        public static string cityName = "Gais AR";
+        public static string cityName { get; set; }
 
         public static string Validate()
         {
-            var tcp = new TcpConnection();
-
-            if (tcp.data != null)
+            // If the TcpListener got a location it returns the location, else it will return the default cityName
+            if (TcpConnection.data != null)
             {
-                return cityName = tcp.data;
+                return cityName = TcpConnection.data;
             }
             else
             {

@@ -7,8 +7,8 @@ namespace M347_Data_Fetcher.Processes
     public class TcpConnection
     {
         // Buffer for reading data
-        public byte[] bytes;
-        public string data = null;
+        public static byte[]? bytes;
+        public static string? data = null;
 
         public async void TcpConnectionInit()
         {
@@ -18,6 +18,7 @@ namespace M347_Data_Fetcher.Processes
             {
                 // Set the TcpListener on port 13000.
                 int port = 13000;
+                // Set the TcpListener on the localhost IP-Address
                 IPAddress localhost = IPAddress.Parse("127.0.0.1");
 
                 // TcpListener server = new TcpListener(port);
