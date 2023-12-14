@@ -45,6 +45,8 @@ var store = app.Services.GetService<IDocumentStore>();
 // Default cityName
 LocationValidator.cityName = "Gais AR";
 
+
+// Dependency Injection with constructor
 var _weatherGetter = new WeatherGetter(weatherApi, store);
 
 

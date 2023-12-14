@@ -10,8 +10,8 @@ namespace M347_Data_Fetcher.Processes
 {
     public class WeatherGetter
     {
-        private IWeatherApi? _weatherApi;
-        private IDocumentStore? _store;
+        private IWeatherApi _weatherApi;
+        private IDocumentStore _store;
 
         // Constructor DI (dependency injection)
         public WeatherGetter(IWeatherApi weatherapi, IDocumentStore store)
