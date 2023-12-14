@@ -3,7 +3,6 @@ using M347_Data_Fetcher.Data;
 using M347_Data_Fetcher.Pages;
 using Marten;
 using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 using System.Timers;
 
 namespace M347_Data_Fetcher.Processes
@@ -12,7 +11,6 @@ namespace M347_Data_Fetcher.Processes
     {
         private readonly IWeatherApi _weatherApi;
         private readonly IDocumentStore _store;
-        private LocationValidator _locationValidator;
 
         void setTimers()
         {
@@ -25,7 +23,7 @@ namespace M347_Data_Fetcher.Processes
 
         async void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            await _locationValidator.Validate;
+            LocationValidator.Validate();
             WeatherGet(LocationValidator.cityName);
         }
 

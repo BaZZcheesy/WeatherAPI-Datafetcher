@@ -9,7 +9,7 @@
         {
             var tcp = new TcpConnection();
 
-            if (tcp.bytes != null)
+            if (tcp.data != null)
             {
                 return cityName = tcp.data;
             }

@@ -54,6 +54,9 @@ var WeatherApi = app.Services.GetService<IWeatherApi>();
 
 var Store = app.Services.GetService<IDocumentStore>();
 
+//Default cityName
+string cityName = "Gais AR";
+
 Response? jsonConverted;
 
 var tcp = new TcpConnection();
@@ -61,9 +64,6 @@ var tcp = new TcpConnection();
 var thread = new ThreadStart(tcp.TcpConnectionInit);
 var backgroundThread = new Thread(thread);
 backgroundThread.Start();
-
-//Default cityName
-string cityName = "Gais AR";
 
 setTimers();
 async Task WeatherGet(string cityName)
