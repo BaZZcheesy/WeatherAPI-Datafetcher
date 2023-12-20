@@ -1,12 +1,11 @@
-﻿using M347_Data_Fetcher.Api;
-using M347_Data_Fetcher.Data;
-using M347_Data_Fetcher.Pages;
+﻿using System.Timers;
 using Marten;
-using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
-using System.Timers;
+using Stratos.DataFetcher.Api;
+using Stratos.DataFetcher.Data;
+using Stratos.DataFetcher.Pages;
 
-namespace M347_Data_Fetcher.Processes
+namespace Stratos.DataFetcher.Processes
 {
     public class WeatherGetter
     {

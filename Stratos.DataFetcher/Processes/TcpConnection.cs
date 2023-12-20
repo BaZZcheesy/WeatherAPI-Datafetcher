@@ -1,8 +1,7 @@
-﻿using System.Net.Sockets;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Net;
+using System.Net.Sockets;
 
-namespace M347_Data_Fetcher.Processes
+namespace Stratos.DataFetcher.Processes
 {
     public class TcpConnection
     {

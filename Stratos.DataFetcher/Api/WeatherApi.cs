@@ -1,7 +1,6 @@
-﻿using M347_Data_Fetcher.Data;
-using Refit;
+﻿using Refit;
 
-namespace M347_Data_Fetcher.Api
+namespace Stratos.DataFetcher.Api
 {
     public interface IWeatherApi
     {

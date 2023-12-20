@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace M347_Data_Fetcher.Data
+namespace Stratos.DataFetcher.Data
 {
     public class Location
     {

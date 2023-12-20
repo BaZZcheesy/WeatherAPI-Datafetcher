@@ -1,4 +1,4 @@
-﻿namespace M347_Data_Fetcher.Processes
+﻿namespace Stratos.DataFetcher.Processes
 {
     public class LocationValidator
     {

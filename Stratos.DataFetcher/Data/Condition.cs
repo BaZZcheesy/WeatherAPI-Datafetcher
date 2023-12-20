@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System.Text.Json.Serialization;
 
-namespace M347_Data_Fetcher.Data
+namespace Stratos.DataFetcher.Data
 {
     public class Condition
     {

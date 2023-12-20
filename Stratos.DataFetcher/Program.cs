@@ -1,8 +1,8 @@
-using M347_Data_Fetcher.Api;
-using M347_Data_Fetcher.Processes;
 using Refit;
 using MudBlazor.Services;
 using Marten;
+using Stratos.DataFetcher.Api;
+using Stratos.DataFetcher.Processes;
 using Weasel.Core;
 
 
