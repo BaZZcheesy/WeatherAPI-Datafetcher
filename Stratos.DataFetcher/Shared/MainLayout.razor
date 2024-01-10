@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Components.Routing
+@using MudBlazor
+@inherits LayoutComponentBase
+
+<PageTitle>APIs</PageTitle>
+
+<MudThemeProvider IsDarkMode="true" Theme="Theme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1" @onclick="DrawerToggle">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <h1>API Dashboard</h1>
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Default" Edge="Edge.End" />
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="2" Variant="@DrawerVariant.Mini" OpenMiniOnHover="false">
+        <MudNavMenu Rounded="true" Margin="Margin.Dense" Color="Color.Dark">
+            <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
+            <MudNavLink Href="/status" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Adb">Status</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudContainer MaxWidth="MaxWidth.Large" Style="padding:20px;">
+        <MudMainContent>
+            @Body
+        </MudMainContent>
+    </MudContainer>
+</MudLayout>
+
+
+@code {
+    bool _drawerOpen = false;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    public MudTheme Theme => new MudTheme()
+        {
+            PaletteDark = new PaletteDark()
+            {
+                Dark = new MudBlazor.Utilities.MudColor(255, 255, 255, 255)
+            }
+        };
+}

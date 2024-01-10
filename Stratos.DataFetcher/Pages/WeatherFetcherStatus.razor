@@ -1,0 +1,48 @@
+﻿@page "/status"
+@using System.Timers;
+
+<h3>WeatherFetcherStatus</h3>
+<MudText>@status</MudText>
+<MudText>@errorMsg</MudText>
+<MudText>@currentCityMsg</MudText>
+
+
+@code {
+    public static bool isRunning = true;
+    public static string currentCity = "";
+    public string currentCityMsg = "Getting City...";
+    public string status = "Checking service state...";
+    public string errorMsg = "";
+
+    private System.Timers.Timer aTimer { get; set; } = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        aTimer = new System.Timers.Timer(5000);
+        aTimer.Elapsed += StatusChecker;
+        aTimer.Start();
+
+        await base.OnInitializedAsync();
+    }
+
+    public void StatusChecker(Object source, ElapsedEventArgs e)
+    {
+        if (isRunning == true)
+        {
+            status = "The service is running correctly";
+            errorMsg = "***No error detected***";
+            currentCityMsg = "Getting weather from: " + currentCity;
+        }
+        else
+        {
+            status = "The service is NOT running correctly";
+            errorMsg = "***Error detected***";
+            currentCityMsg = "Have you misspelled the cityName?";
+        }
+
+        InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+}
