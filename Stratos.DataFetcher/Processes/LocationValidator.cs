@@ -7,14 +7,14 @@
 
         public static string Validate()
         {
-            // If the TcpListener got a location it returns the location, else it will return the default cityName
+            // If the TcpListener got a location it returns the location, else it will return the current cityName
             if (TcpConnection.data != null)
             {
                 return cityName = TcpConnection.data;
             }
             else
             {
-                return cityName = "Gais AR";
+                return cityName;
             }
         }
     }

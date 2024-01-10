@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  stratos.datafetcher:
+    image: ${DOCKER_REGISTRY-}stratosdatafetcher
+    build:
+      context: .
+      dockerfile: Stratos.DataFetcher/Dockerfile

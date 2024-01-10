@@ -46,7 +46,7 @@ namespace Stratos.DataFetcher.Processes
             try
             {
                 //Fetch data from WeatherAPI
-                response = await _weatherApi.GetWeather("1c39ca929b4b4d23a4364338231708", cityName);
+                response = await _weatherApi.GetWeather("b11d405f0b6f41f9abc101604232012", cityName);
 
                 WeatherFetcherStatus.isRunning = true;
                 jsonConverted = JsonConvert.DeserializeObject<Response>(response);

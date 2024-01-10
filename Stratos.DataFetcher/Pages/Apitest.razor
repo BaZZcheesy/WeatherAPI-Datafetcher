@@ -21,13 +21,13 @@
 
     private async Task IncrementCount()
     {
-        apiResponse = await WeatherApi.GetWeather("1c39ca929b4b4d23a4364338231708", "London");
+        apiResponse = await WeatherApi.GetWeather("b11d405f0b6f41f9abc101604232012", "London");
 
         currentCount++;
     }
 
     protected override async Task OnInitializedAsync()
     {
-        apiResponse = await WeatherApi.GetWeather("1c39ca929b4b4d23a4364338231708", "London");
+        apiResponse = await WeatherApi.GetWeather("b11d405f0b6f41f9abc101604232012", "London");
     }
 }

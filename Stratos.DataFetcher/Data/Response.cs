@@ -8,8 +8,5 @@
         required public Location Location { get; set; }
 
         required public Current Current { get; set; }
-
-        //JsonProperty("")
-        //required public int ResponseCode { get; set; };
     }
 }
