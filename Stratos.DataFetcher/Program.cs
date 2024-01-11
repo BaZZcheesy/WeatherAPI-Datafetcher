@@ -43,7 +43,7 @@ var store = app.Services.GetService<IDocumentStore>();
 
 
 // Default cityName
-LocationValidator.cityName = "Gais AR";
+LocationValidator.cityName = "St. Gallen";
 
 
 // Dependency Injection with constructor

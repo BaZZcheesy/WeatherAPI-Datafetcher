@@ -11,6 +11,7 @@ namespace Stratos.DataFetcher.Processes
     {
         private IWeatherApi _weatherApi;
         private IDocumentStore _store;
+        public static System.Timers.Timer aTimer;
 
         // Constructor DI (dependency injection)
         public WeatherGetter(IWeatherApi weatherapi, IDocumentStore store)
@@ -18,11 +19,9 @@ namespace Stratos.DataFetcher.Processes
             _weatherApi = weatherapi;
             _store = store;
         }
-        
+
         public void setTimers()
         {
-            System.Timers.Timer aTimer;
-
             aTimer = new System.Timers.Timer(10000);
             aTimer.Elapsed += OnTimedEvent;
             aTimer.Start();
@@ -31,7 +30,7 @@ namespace Stratos.DataFetcher.Processes
         async void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             LocationValidator.Validate();
-            WeatherGet(LocationValidator.cityName);
+            await WeatherGet(LocationValidator.cityName);
         }
 
         async Task WeatherGet(string cityName)
@@ -72,7 +71,7 @@ namespace Stratos.DataFetcher.Processes
                 //Console.WriteLine() for debugging and additional info
                 Console.WriteLine(DateTime.Now.ToString() + "DB Insert with location: " + weather.Location.Name + " successfull");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //Changes variable that is needed to show the state of the service
                 WeatherFetcherStatus.isRunning = false;

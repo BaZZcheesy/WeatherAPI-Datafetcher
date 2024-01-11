@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stratos.DataFetcher", "Stratos.DataFetcher\Stratos.DataFetcher.csproj", "{8B86F43A-94F8-4D83-8EA4-BF1452E89568}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0DE79EEF-D86E-4CB7-8673-2D2158ECEAE1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{8B86F43A-94F8-4D83-8EA4-BF1452E89568}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B86F43A-94F8-4D83-8EA4-BF1452E89568}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B86F43A-94F8-4D83-8EA4-BF1452E89568}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DE79EEF-D86E-4CB7-8673-2D2158ECEAE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DE79EEF-D86E-4CB7-8673-2D2158ECEAE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DE79EEF-D86E-4CB7-8673-2D2158ECEAE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DE79EEF-D86E-4CB7-8673-2D2158ECEAE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

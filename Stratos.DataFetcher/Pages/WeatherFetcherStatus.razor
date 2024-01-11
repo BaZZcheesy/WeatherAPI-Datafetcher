@@ -9,6 +9,7 @@
 
 @code {
     public static bool isRunning = true;
+    public static string commandState;
     public static string currentCity = "";
     public string currentCityMsg = "Getting City...";
     public string status = "Checking service state...";
@@ -27,16 +28,20 @@
 
     public void StatusChecker(Object source, ElapsedEventArgs e)
     {
-        if (isRunning == true)
+        if (isRunning == true || commandState == "continue")
         {
             status = "The service is running correctly";
             errorMsg = "***No error detected***";
             currentCityMsg = "Getting weather from: " + currentCity;
         }
+        else if (commandState == "kill")
+        {
+            status = "The service got stopped from another container!";
+        }
         else
         {
             status = "The service is NOT running correctly";
-            errorMsg = "***Error detected***";
+            errorMsg = "***Unexpected error detected***";
             currentCityMsg = "Have you misspelled the cityName?";
         }
 
