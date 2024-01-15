@@ -11,7 +11,7 @@
     public static bool isRunning = true;
     public static string commandState;
     public static string currentCity = "";
-    public string currentCityMsg = "Getting City...";
+    public string currentCityMsg = "Getting Cities...";
     public string status = "Checking service state...";
     public string errorMsg = "";
 
@@ -32,7 +32,7 @@
         {
             status = "The service is running correctly";
             errorMsg = "***No error detected***";
-            currentCityMsg = "Getting weather from: " + currentCity;
+            currentCityMsg = "Getting weather from cities";
         }
         else if (commandState == "kill")
         {

@@ -9,6 +9,23 @@ namespace Stratos.DataFetcher.Processes
 {
     public class WeatherGetter
     {
+        private string[] locations = {
+            "Zürich",
+            "St. Gallen",
+            "Bern",
+            "Luzern",
+            "Basel",
+            "Genf",
+            "Appenzell",
+            "Gais AR",
+            "Fribourg",
+            "Port-Valais",
+            "Lugano",
+            "New York",
+            "Beijing",
+            "Abuja" 
+        };
+
         private IWeatherApi _weatherApi;
         private IDocumentStore _store;
         public static System.Timers.Timer aTimer;
@@ -29,8 +46,7 @@ namespace Stratos.DataFetcher.Processes
 
         async void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            LocationValidator.Validate();
-            await WeatherGet(LocationValidator.cityName);
+            await WeatherGet("test");
         }
 
         async Task WeatherGet(string cityName)
@@ -39,42 +55,43 @@ namespace Stratos.DataFetcher.Processes
 
             string response = string.Empty;
 
-            WeatherFetcherStatus.currentCity = cityName;
-
-
-            try
+            foreach (var location in locations)
             {
-                //Fetch data from WeatherAPI
-                response = await _weatherApi.GetWeather("b11d405f0b6f41f9abc101604232012", cityName);
-
-                WeatherFetcherStatus.isRunning = true;
-                jsonConverted = JsonConvert.DeserializeObject<Response>(response);
-
-                // Open a session for querying, loading, and updating documents
-                await using var session = _store.LightweightSession();
-
-                var weather = new Response
+                try
                 {
-                    dateInserted = DateTime.Now.ToString(),
-                    Current = jsonConverted.Current,
-                    Location = jsonConverted.Location
-                };
+                    //Fetch data from WeatherAPI
+                    response = await _weatherApi.GetWeather("b11d405f0b6f41f9abc101604232012", location);
 
-                //Insert the instanciated weather object into the database
-                session.Store(weather);
+                    WeatherFetcherStatus.isRunning = true;
+                    jsonConverted = JsonConvert.DeserializeObject<Response>(response);
 
-                await session.SaveChangesAsync();
+                    // Open a session for querying, loading, and updating documents
+                    await using var session = _store.LightweightSession();
 
-                //Changes variable that is needed to show the state of the service
-                WeatherFetcherStatus.isRunning = true;
+                    var weather = new Response
+                    {
+                        dateInserted = DateTime.Now.ToString(),
+                        Current = jsonConverted.Current,
+                        Location = jsonConverted.Location
+                    };
 
-                //Console.WriteLine() for debugging and additional info
-                Console.WriteLine(DateTime.Now.ToString() + "DB Insert with location: " + weather.Location.Name + " successfull");
-            }
-            catch (Exception)
-            {
-                //Changes variable that is needed to show the state of the service
-                WeatherFetcherStatus.isRunning = false;
+                    //Insert the instanciated weather object into the database
+                    session.Store(weather);
+
+                    await session.SaveChangesAsync();
+
+                    //Changes variable that is needed to show the state of the service
+                    WeatherFetcherStatus.isRunning = true;
+
+                    //Console.WriteLine() for debugging and additional info
+                    Console.WriteLine(DateTime.Now.ToString() + "DB Insert with location: " + weather.Location.Name + " successfull");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    //Changes variable that is needed to show the state of the service
+                    WeatherFetcherStatus.isRunning = false;
+                }
             }
         }
     }

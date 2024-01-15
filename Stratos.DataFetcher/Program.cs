@@ -18,7 +18,6 @@ builder.Services.AddServerSideBlazor();
 var gitHubApi = RestService.For<IWeatherApi>("https://api.weatherapi.com/");
 builder.Services.AddSingleton(gitHubApi);
 builder.Services.AddMudServices();
-builder.Services.AddSingleton<TcpConnection>();
 
 // This is the absolute, simplest way to integrate Marten into your
 // .NET application with Marten's default configuration
@@ -41,26 +40,11 @@ var weatherApi = app.Services.GetService<IWeatherApi>();
 
 var store = app.Services.GetService<IDocumentStore>();
 
-
-// Default cityName
-LocationValidator.cityName = "St. Gallen";
-
-
 // Dependency Injection with constructor
 var _weatherGetter = new WeatherGetter(weatherApi, store);
 
-
-// Initialize a new TcpConnection and start it in the background on another thread
-var tcp = new TcpConnection();
-
-var thread = new ThreadStart(tcp.TcpConnectionInit);
-var backgroundThread = new Thread(thread);
-backgroundThread.Start();
-
-
 // Start the fetching process
 _weatherGetter.setTimers();
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
