@@ -7,21 +7,24 @@ using Stratos.DataFetcher.Processes;
 namespace Stratos.DataFetcher.Api
 {
     [ApiController]
-    [Route("/api/changestate")]
-    public class HomeController : Controller
+    [Route("api")]
+    public class HomeController : ControllerBase
     {
-        public IActionResult Index()
+        [HttpGet("GetData")]
+        public ActionResult<string> GetData()
         {
-            return View();
+            // Replace this with your actual logic to fetch data
+            return "Data from the server-side API!";
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("/changestate")]
         public IActionResult changestate([FromBody] string body)
         {
             WeatherFetcherStatus.currentCity = body;
-
+        
             var jsonConverted = JsonConvert.DeserializeObject<RequestBody>(body);
-
+        
             if (jsonConverted.State == true)
             {
                 WeatherFetcherStatus.isRunning = true;
@@ -50,7 +53,7 @@ namespace Stratos.DataFetcher.Api
                     WeatherGetter.aTimer.Stop();
                 }
             }
-
+        
             return Ok();
         }
     }

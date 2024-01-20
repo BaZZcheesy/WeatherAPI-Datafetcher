@@ -5,6 +5,9 @@ using Stratos.DataFetcher.Api;
 using Stratos.DataFetcher.Processes;
 using Weasel.Core;
 using Stratos.DataFetcher.Pages;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Components;
 
 Console.WriteLine("Program started");
 
@@ -61,7 +64,32 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-Console.WriteLine("app.environment zeugs lol");
+Console.WriteLine("app.environment");
+
+app.MapGet("/changestate/{state}",
+    (bool state) =>
+    {
+        try
+        {
+            if (state == true && !WeatherGetter.isTimerRunning)
+            {
+                WeatherGetter.isTimerRunning = true;
+                WeatherGetter.aTimer.Start();
+                WeatherFetcherStatus.isRunning = true;
+            }
+            else
+            {
+                WeatherGetter.isTimerRunning = false;
+                WeatherGetter.aTimer.Stop();
+                WeatherFetcherStatus.isRunning = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+);
 
 app.UseHttpsRedirection();
 

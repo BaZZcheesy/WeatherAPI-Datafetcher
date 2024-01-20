@@ -7,27 +7,42 @@
 
 <p role="status">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="OnInitializedAsync">Click me</button>
 
-@apiResponse
+@httpresponseee
 
 @code {
     [Inject] public IWeatherApi WeatherApi { get; set; } = null!;
 
+    private string httpresponseee;
 
     private int currentCount = 0;
 
     string apiResponse = string.Empty;
 
-    private async Task IncrementCount()
-    {
-        apiResponse = await WeatherApi.GetWeather("b11d405f0b6f41f9abc101604232012", "London");
-
-        currentCount++;
-    }
-
     protected override async Task OnInitializedAsync()
     {
         apiResponse = await WeatherApi.GetWeather("b11d405f0b6f41f9abc101604232012", "London");
+
+        // URL pointing to your server-side API endpoint
+        var apiUrl = "http://127.0.0.1:5000/api/getdata"; // Adjust the URL accordingly
+
+        // Create an instance of HttpClient
+        using (var httpClient = new HttpClient())
+        {
+            try
+            {
+                // Send the GET request
+                var response = await httpClient.GetStringAsync(apiUrl);
+
+                // Set the received data to be displayed on the page
+                httpresponseee = response;
+            }
+            catch (Exception ex)
+            {
+                // Handle the error if needed
+                httpresponseee = $"An error occurred: {ex.Message}";
+            }
+        }
     }
 }

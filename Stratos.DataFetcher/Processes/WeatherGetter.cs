@@ -10,20 +10,20 @@ namespace Stratos.DataFetcher.Processes
     public class WeatherGetter
     {
         private string[] locations = {
-            "Zürich",
-            "St. Gallen",
+            "Saint Gallen",
+            "Zürichsee",
             "Bern",
             "Luzern",
             "Basel",
             "Genf",
             "Appenzell",
-            "Gais AR",
+            "Gais",
+            "Genf",
             "Fribourg",
-            "Port-Valais",
             "Lugano",
             "New York",
             "Beijing",
-            "Abuja" 
+            "Abuja"
         };
 
         private IWeatherApi _weatherApi;
@@ -40,7 +40,7 @@ namespace Stratos.DataFetcher.Processes
 
         public void setTimers()
         {
-            aTimer = new System.Timers.Timer(10000);
+            aTimer = new System.Timers.Timer(15000);
             aTimer.Elapsed += OnTimedEvent;
             isTimerRunning = true;
             aTimer.Start();
