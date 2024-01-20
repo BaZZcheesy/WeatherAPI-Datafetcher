@@ -5,6 +5,7 @@
 <MudText>@status</MudText>
 <MudText>@errorMsg</MudText>
 <MudText>@currentCityMsg</MudText>
+<MudText></MudText>
 
 
 @code {
@@ -28,13 +29,13 @@
 
     public void StatusChecker(Object source, ElapsedEventArgs e)
     {
-        if (isRunning == true || commandState == "continue")
+        if (isRunning == true || Processes.WeatherGetter.isTimerRunning == true)
         {
             status = "The service is running correctly";
             errorMsg = "***No error detected***";
             currentCityMsg = "Getting weather from cities";
         }
-        else if (commandState == "kill")
+        else if (Processes.WeatherGetter.isTimerRunning == false)
         {
             status = "The service got stopped from another container!";
         }

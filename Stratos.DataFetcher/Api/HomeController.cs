@@ -33,6 +33,7 @@ namespace Stratos.DataFetcher.Api
                 {
                     WeatherGetter.aTimer.Start();
                     WeatherGetter.isTimerRunning = true;
+                    WeatherFetcherStatus.isRunning = true;
                     return Ok();
                 }
             }
@@ -45,6 +46,7 @@ namespace Stratos.DataFetcher.Api
                 else 
                 {
                     WeatherGetter.isTimerRunning = false;
+                    WeatherFetcherStatus.isRunning = false;
                     WeatherGetter.aTimer.Stop();
                 }
             }
