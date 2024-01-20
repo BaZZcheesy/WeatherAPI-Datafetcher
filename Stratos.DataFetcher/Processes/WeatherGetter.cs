@@ -29,6 +29,7 @@ namespace Stratos.DataFetcher.Processes
         private IWeatherApi _weatherApi;
         private IDocumentStore _store;
         public static System.Timers.Timer aTimer;
+        public static bool isTimerRunning = false;
 
         // Constructor DI (dependency injection)
         public WeatherGetter(IWeatherApi weatherapi, IDocumentStore store)
@@ -41,19 +42,22 @@ namespace Stratos.DataFetcher.Processes
         {
             aTimer = new System.Timers.Timer(10000);
             aTimer.Elapsed += OnTimedEvent;
+            isTimerRunning = true;
             aTimer.Start();
         }
 
         async void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            await WeatherGet("test");
+            await WeatherGet();
         }
 
-        async Task WeatherGet(string cityName)
+        async Task WeatherGet()
         {
             Response? jsonConverted;
 
             string response = string.Empty;
+
+            Console.WriteLine("Started pulling data");
 
             foreach (var location in locations)
             {
@@ -65,8 +69,12 @@ namespace Stratos.DataFetcher.Processes
                     WeatherFetcherStatus.isRunning = true;
                     jsonConverted = JsonConvert.DeserializeObject<Response>(response);
 
+                    Console.WriteLine("Data pulled and converted");
+
                     // Open a session for querying, loading, and updating documents
                     await using var session = _store.LightweightSession();
+
+                    Console.WriteLine("inserting into db");
 
                     var weather = new Response
                     {
@@ -80,6 +88,8 @@ namespace Stratos.DataFetcher.Processes
 
                     await session.SaveChangesAsync();
 
+                    Console.WriteLine("Insertion process complete");
+
                     //Changes variable that is needed to show the state of the service
                     WeatherFetcherStatus.isRunning = true;
 
@@ -88,7 +98,7 @@ namespace Stratos.DataFetcher.Processes
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    Console.WriteLine("Exception: " + e);
                     //Changes variable that is needed to show the state of the service
                     WeatherFetcherStatus.isRunning = false;
                 }

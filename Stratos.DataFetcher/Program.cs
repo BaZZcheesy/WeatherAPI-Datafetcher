@@ -4,8 +4,7 @@ using Marten;
 using Stratos.DataFetcher.Api;
 using Stratos.DataFetcher.Processes;
 using Weasel.Core;
-
-
+using Stratos.DataFetcher.Pages;
 
 Console.WriteLine("Program started");
 
@@ -18,6 +17,8 @@ builder.Services.AddServerSideBlazor();
 var gitHubApi = RestService.For<IWeatherApi>("https://api.weatherapi.com/");
 builder.Services.AddSingleton(gitHubApi);
 builder.Services.AddMudServices();
+
+Console.WriteLine("services added");
 
 // This is the absolute, simplest way to integrate Marten into your
 // .NET application with Marten's default configuration
@@ -34,6 +35,8 @@ builder.Services.AddMarten(options =>
     }
 });
 
+Console.WriteLine("Marten added");
+
 var app = builder.Build();
 
 var weatherApi = app.Services.GetService<IWeatherApi>();
@@ -43,8 +46,12 @@ var store = app.Services.GetService<IDocumentStore>();
 // Dependency Injection with constructor
 var _weatherGetter = new WeatherGetter(weatherApi, store);
 
+Console.WriteLine("DI completed");
+
 // Start the fetching process
 _weatherGetter.setTimers();
+
+Console.WriteLine("Starting fetching process");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -54,6 +61,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+Console.WriteLine("app.environment zeugs lol");
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -62,5 +71,7 @@ app.UseRouting();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+Console.WriteLine("Program complete");
 
 app.Run();
